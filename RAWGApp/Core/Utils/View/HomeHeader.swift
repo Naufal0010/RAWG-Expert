@@ -24,14 +24,14 @@ struct HomeHeader: View {
             
             Spacer()
             
-//            NavigationLink(destination: ProfileView()) {
+            NavigationLink(destination: ProfileView()) {
                 Image("ProfilePhoto")
                     .resizable()
                     .clipShape(Circle())
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 40, height: 40)
                 .foregroundColor(.black)
-//            }
+            }
         }
     }
 }

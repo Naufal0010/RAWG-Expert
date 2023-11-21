@@ -7,74 +7,113 @@
 
 import SwiftUI
 import CachedAsyncImage
+import RichText
 
 struct DetailView: View {
     @ObservedObject var presenter: DetailPresenter
     
     var body: some View {
-        ZStack {
-            if presenter.isLoading {
-                loadingIndicator
-            } else {
-                ScrollView(.vertical) {
-                    VStack {
-                        imageCategory
-                        spacer
-                        content
-                        spacer
-                    }.padding()
-                }
+        NavigationStack {
+            ScrollView(.vertical) {
+                VStack(alignment: .leading) {
+                        CachedAsyncImage(url: URL(string: self.presenter.data.urlBackground)) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(3 / 2, contentMode: .fit)
+                        } placeholder: {
+                            ProgressView("")
+                                .progressViewStyle(CircularProgressViewStyle())
+                                .tint(.gray)
+                                .frame(width: 120, height: 120)
+                        }
+                        
+                        VStack(alignment: .leading) {
+                            
+                            Text(self.presenter.data.name)
+                                .fontWeight(.bold)
+                                .font(.system(size: 24))
+                                .foregroundStyle(.white)
+                                .padding(.bottom, 12)
+                            
+                            HStack(alignment: .top ,spacing: 36) {
+                                
+                                VStack(alignment: .leading) {
+                                    Text("Release Date")
+                                        .font(.system(size: 14))
+                                        .foregroundStyle(.white)
+                                    
+                                    Text(self.presenter.data.released)
+                                        .font(.system(.caption))
+                                        .foregroundStyle(.gray100)
+                                        .fontWeight(.thin)
+                                        .multilineTextAlignment(.leading)
+                                }
+                                
+                                
+                                VStack(alignment: .leading) {
+                                    Text("Metacritic")
+                                        .font(.system(size: 14))
+                                        .foregroundStyle(.white)
+                                    
+                                    Text("\(self.presenter.data.metacritic)")
+                                        .font(.system(.caption))
+                                        .foregroundStyle(.gray100)
+                                        .fontWeight(.thin)
+                                        .multilineTextAlignment(.leading)
+                                }
+                                
+                                VStack(alignment: .leading) {
+                                    Text("Rating")
+                                        .font(.system(size: 14))
+                                        .foregroundStyle(.white)
+                                    
+                                    Text("\(self.presenter.data.rating, specifier: "%.2f")")
+                                        .font(.system(.caption))
+                                        .foregroundStyle(.gray100)
+                                        .fontWeight(.thin)
+                                        .multilineTextAlignment(.leading)
+                                }
+                            }
+                            
+                            Spacer()
+                            
+                        }
+                        .padding(16)
+                        
+                        VStack(alignment: .leading) {
+                            
+                            Divider()
+                                .background(.white)
+                            
+                            Text("About")
+                                .font(.system(.title2))
+                                .fontWeight(.semibold)
+                                .foregroundStyle(.white)
+                            
+                            if presenter.isLoading {
+                                VStack {
+                                    ForEach(0..<5, id: \.self) { _ in
+                                        ShimmerTextView()
+                                    }
+                                }
+                            } else {
+                                RichText(html: self.presenter.data.desc)
+                                    .foregroundColor(light: Color.white, dark: Color.white)
+                                    .font(.system(size: 12))
+                            }
+                            
+                        }
+                        .padding(.horizontal, 16)
+                        
+                        Spacer()
+                    }
+                    
             }
-        }.navigationBarTitle(
-            Text(self.presenter.data.name),
-            displayMode: .large)
+            .background(Color.bg)
+        }
+        .tint(Color.accentColor)
         .onAppear {
             self.presenter.getDetailGame()
-        }
-    }
-}
-
-extension DetailView {
-    var spacer: some View {
-        Spacer()
-    }
-    
-    var loadingIndicator: some View {
-        VStack {
-            Text("Loading...")
-            ProgressView()
-        }
-    }
-    
-    var imageCategory: some View {
-        CachedAsyncImage(url: URL(string: self.presenter.data.urlBackground)) { image in
-            image.resizable()
-        } placeholder: {
-            ProgressView()
-        }.scaledToFit().frame(width: 250.0, height: 250.0, alignment: .center)
-    }
-    
-    var released: some View {
-        Text(self.presenter.data.released)
-            .font(.system(size: 15))
-    }
-    
-    var descriptionGames: some View {
-        Text(self.presenter.data.desc)
-            .font(.system(size: 15))
-    }
-    
-    func headerTitle(_ title: String) -> some View {
-        return Text(title)
-            .font(.headline)
-    }
-    
-    var content: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            headerTitle("Released")
-                .padding([.top, .bottom])
-            released
-            descriptionGames
         }
     }
 }

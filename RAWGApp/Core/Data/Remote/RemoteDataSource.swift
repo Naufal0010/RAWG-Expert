@@ -9,11 +9,6 @@ import Foundation
 import Alamofire
 import Combine
 
-private let header: HTTPHeaders = [
-    "Authorization": "\(API.apiKey)",
-    "Content-Type": "application/json"
-]
-
 protocol RemoteDataSourceProtocol: AnyObject {
     
     func getAllGames() -> AnyPublisher<[RawgResponse], Error>

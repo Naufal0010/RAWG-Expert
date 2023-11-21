@@ -43,7 +43,7 @@ enum Endpoints {
             switch self {
             case .allGames: return "\(API.baseUrl)/games?key=\(API.apiKey)"
             case .gameDetails(let gameId): return "\(API.baseUrl)/games/\(gameId)?key=\(API.apiKey)"
-            case .searchGames: return "\(API.baseUrl)/games"
+            case .searchGames: return "\(API.baseUrl)/games?key=\(API.apiKey)&search="
             }
         }
     }

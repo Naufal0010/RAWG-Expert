@@ -2,7 +2,7 @@
 //  SplashView.swift
 //  RAWGApp
 //
-//  Created by Naufal Abiyyu on 15/11/23.
+//  Created by Naufal Abiyyu on 21/11/23.
 //
 
 import SwiftUI
