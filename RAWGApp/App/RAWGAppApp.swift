@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct RAWGAppApp: App {
+    let homePresenter = HomePresenter(homeUseCase: Injection.init().provideHome())
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(homePresenter)
         }
     }
 }

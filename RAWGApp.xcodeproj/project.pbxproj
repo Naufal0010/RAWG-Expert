@@ -7,18 +7,76 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A04ADF4D2B01B36A0062EB3A /* RawgsDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04ADF4C2B01B36A0062EB3A /* RawgsDetailResponse.swift */; };
+		A04ADF4F2B01B4D50062EB3A /* LocaleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04ADF4E2B01B4D50062EB3A /* LocaleDataSource.swift */; };
+		A04ADF512B01B7820062EB3A /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04ADF502B01B7820062EB3A /* RemoteDataSource.swift */; };
+		A04ADF552B01BD840062EB3A /* RAWG-info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A04ADF542B01BD840062EB3A /* RAWG-info.plist */; };
+		A04ADF582B01FFF80062EB3A /* RawgRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04ADF572B01FFF80062EB3A /* RawgRepository.swift */; };
+		A04ADF5A2B0200540062EB3A /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04ADF592B0200540062EB3A /* GameModel.swift */; };
+		A04ADF5C2B03099B0062EB3A /* GameDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04ADF5B2B03099B0062EB3A /* GameDetailModel.swift */; };
+		A04ADF5E2B030E3E0062EB3A /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04ADF5D2B030E3E0062EB3A /* HomeInteractor.swift */; };
+		A04ADF602B030ED20062EB3A /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04ADF5F2B030ED20062EB3A /* Injection.swift */; };
+		A04ADF622B030FD90062EB3A /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04ADF612B030FD90062EB3A /* HomePresenter.swift */; };
+		A04ADF642B03117B0062EB3A /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04ADF632B03117B0062EB3A /* HomeRouter.swift */; };
+		A04ADF722B046A380062EB3A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04ADF712B046A380062EB3A /* HomeView.swift */; };
 		A062428F2AFC6D4900A1FF3D /* RAWGAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A062428E2AFC6D4900A1FF3D /* RAWGAppApp.swift */; };
 		A06242912AFC6D4900A1FF3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06242902AFC6D4900A1FF3D /* ContentView.swift */; };
 		A06242932AFC6D4C00A1FF3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06242922AFC6D4C00A1FF3D /* Assets.xcassets */; };
 		A06242962AFC6D4C00A1FF3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06242952AFC6D4C00A1FF3D /* Preview Assets.xcassets */; };
+		A06242B32AFCAB0100A1FF3D /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06242B22AFCAB0100A1FF3D /* CustomError.swift */; };
+		A06242B52AFCAC6B00A1FF3D /* ApiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06242B42AFCAC6B00A1FF3D /* ApiCall.swift */; };
+		A06242B82AFCB04700A1FF3D /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A06242B72AFCB04700A1FF3D /* Realm */; };
+		A06242BA2AFCB04700A1FF3D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A06242B92AFCB04700A1FF3D /* RealmSwift */; };
+		A06242BD2AFCB09A00A1FF3D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A06242BC2AFCB09A00A1FF3D /* Alamofire */; };
+		A06242C02AFCB16800A1FF3D /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = A06242BF2AFCB16800A1FF3D /* CachedAsyncImage */; };
+		A06242C22AFCB19D00A1FF3D /* RawgsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06242C12AFCB19D00A1FF3D /* RawgsResponse.swift */; };
+		A06242C42AFCB27500A1FF3D /* RawgEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06242C32AFCB27500A1FF3D /* RawgEntity.swift */; };
+		A06242C62AFCB32600A1FF3D /* RawgMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06242C52AFCB32600A1FF3D /* RawgMapper.swift */; };
+		A089617E2B05FC97005B57BB /* GameRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A089617D2B05FC97005B57BB /* GameRow.swift */; };
+		A08961802B05FEC4005B57BB /* HomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A089617F2B05FEC4005B57BB /* HomeHeader.swift */; };
+		A08961832B05FF6B005B57BB /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08961822B05FF6B005B57BB /* EmptyView.swift */; };
+		A08961872B06027B005B57BB /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08961862B06027B005B57BB /* DetailInteractor.swift */; };
+		A08961892B060300005B57BB /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08961882B060300005B57BB /* DetailPresenter.swift */; };
+		A089618B2B060369005B57BB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A089618A2B060369005B57BB /* DetailView.swift */; };
+		A089618D2B060400005B57BB /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = A089618C2B060400005B57BB /* CachedAsyncImage */; };
+		A08961902B07088E005B57BB /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = A089618F2B07088E005B57BB /* Shimmer */; };
+		A08961922B070A1B005B57BB /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08961912B070A1B005B57BB /* ShimmerView.swift */; };
+		A08961942B0740B9005B57BB /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08961932B0740B9005B57BB /* NetworkMonitor.swift */; };
+		A08961962B07452A005B57BB /* DetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08961952B07452A005B57BB /* DetailEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A04ADF4C2B01B36A0062EB3A /* RawgsDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgsDetailResponse.swift; sourceTree = "<group>"; };
+		A04ADF4E2B01B4D50062EB3A /* LocaleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleDataSource.swift; sourceTree = "<group>"; };
+		A04ADF502B01B7820062EB3A /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
+		A04ADF542B01BD840062EB3A /* RAWG-info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RAWG-info.plist"; sourceTree = "<group>"; };
+		A04ADF572B01FFF80062EB3A /* RawgRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgRepository.swift; sourceTree = "<group>"; };
+		A04ADF592B0200540062EB3A /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		A04ADF5B2B03099B0062EB3A /* GameDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailModel.swift; sourceTree = "<group>"; };
+		A04ADF5D2B030E3E0062EB3A /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		A04ADF5F2B030ED20062EB3A /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
+		A04ADF612B030FD90062EB3A /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		A04ADF632B03117B0062EB3A /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		A04ADF712B046A380062EB3A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A062428B2AFC6D4900A1FF3D /* RAWGApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RAWGApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A062428E2AFC6D4900A1FF3D /* RAWGAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAWGAppApp.swift; sourceTree = "<group>"; };
 		A06242902AFC6D4900A1FF3D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A06242922AFC6D4C00A1FF3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A06242952AFC6D4C00A1FF3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A06242B22AFCAB0100A1FF3D /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		A06242B42AFCAC6B00A1FF3D /* ApiCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCall.swift; sourceTree = "<group>"; };
+		A06242C12AFCB19D00A1FF3D /* RawgsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgsResponse.swift; sourceTree = "<group>"; };
+		A06242C32AFCB27500A1FF3D /* RawgEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgEntity.swift; sourceTree = "<group>"; };
+		A06242C52AFCB32600A1FF3D /* RawgMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawgMapper.swift; sourceTree = "<group>"; };
+		A089617D2B05FC97005B57BB /* GameRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRow.swift; sourceTree = "<group>"; };
+		A089617F2B05FEC4005B57BB /* HomeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeader.swift; sourceTree = "<group>"; };
+		A08961822B05FF6B005B57BB /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		A08961862B06027B005B57BB /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		A08961882B060300005B57BB /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		A089618A2B060369005B57BB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		A08961912B070A1B005B57BB /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
+		A08961932B0740B9005B57BB /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		A08961952B07452A005B57BB /* DetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +84,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A08961902B07088E005B57BB /* Shimmer in Frameworks */,
+				A06242BD2AFCB09A00A1FF3D /* Alamofire in Frameworks */,
+				A089618D2B060400005B57BB /* CachedAsyncImage in Frameworks */,
+				A06242C02AFCB16800A1FF3D /* CachedAsyncImage in Frameworks */,
+				A06242BA2AFCB04700A1FF3D /* RealmSwift in Frameworks */,
+				A06242B82AFCB04700A1FF3D /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,10 +115,12 @@
 		A062428D2AFC6D4900A1FF3D /* RAWGApp */ = {
 			isa = PBXGroup;
 			children = (
-				A062428E2AFC6D4900A1FF3D /* RAWGAppApp.swift */,
-				A06242902AFC6D4900A1FF3D /* ContentView.swift */,
+				A04ADF542B01BD840062EB3A /* RAWG-info.plist */,
 				A06242922AFC6D4C00A1FF3D /* Assets.xcassets */,
 				A06242942AFC6D4C00A1FF3D /* Preview Content */,
+				A062429C2AFC6D7400A1FF3D /* App */,
+				A062429D2AFC6D8A00A1FF3D /* Core */,
+				A062429E2AFC6D9400A1FF3D /* Module */,
 			);
 			path = RAWGApp;
 			sourceTree = "<group>";
@@ -65,6 +131,230 @@
 				A06242952AFC6D4C00A1FF3D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A062429C2AFC6D7400A1FF3D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A062428E2AFC6D4900A1FF3D /* RAWGAppApp.swift */,
+				A06242902AFC6D4900A1FF3D /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A062429D2AFC6D8A00A1FF3D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A062429F2AFC6E2D00A1FF3D /* Data */,
+				A06242A02AFC6E3400A1FF3D /* DI */,
+				A06242A12AFC6E3A00A1FF3D /* Domain */,
+				A06242A22AFC6E4300A1FF3D /* Utils */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A062429E2AFC6D9400A1FF3D /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				A06242AC2AFC6ED300A1FF3D /* Home */,
+				A06242AD2AFC6EDD00A1FF3D /* Detail */,
+				A06242AE2AFC6EE300A1FF3D /* Favorite */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		A062429F2AFC6E2D00A1FF3D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A06242A32AFC6E5800A1FF3D /* Locale */,
+				A06242A42AFC6E5F00A1FF3D /* Remote */,
+				A04ADF572B01FFF80062EB3A /* RawgRepository.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A06242A02AFC6E3400A1FF3D /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				A04ADF5F2B030ED20062EB3A /* Injection.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		A06242A12AFC6E3A00A1FF3D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				A06242A72AFC6E9600A1FF3D /* Model */,
+				A06242A82AFC6E9B00A1FF3D /* UseCase */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		A06242A22AFC6E4300A1FF3D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A06242AB2AFC6EC000A1FF3D /* Extension */,
+				A06242AA2AFC6EBB00A1FF3D /* Mapper */,
+				A06242A92AFC6EB300A1FF3D /* Network */,
+				A08961812B05FF4B005B57BB /* View */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A06242A32AFC6E5800A1FF3D /* Locale */ = {
+			isa = PBXGroup;
+			children = (
+				A06242A52AFC6E7700A1FF3D /* Entity */,
+				A04ADF4E2B01B4D50062EB3A /* LocaleDataSource.swift */,
+			);
+			path = Locale;
+			sourceTree = "<group>";
+		};
+		A06242A42AFC6E5F00A1FF3D /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				A06242A62AFC6E8300A1FF3D /* Response */,
+				A04ADF502B01B7820062EB3A /* RemoteDataSource.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		A06242A52AFC6E7700A1FF3D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				A06242C32AFCB27500A1FF3D /* RawgEntity.swift */,
+				A08961952B07452A005B57BB /* DetailEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		A06242A62AFC6E8300A1FF3D /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				A06242C12AFCB19D00A1FF3D /* RawgsResponse.swift */,
+				A04ADF4C2B01B36A0062EB3A /* RawgsDetailResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		A06242A72AFC6E9600A1FF3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A04ADF592B0200540062EB3A /* GameModel.swift */,
+				A04ADF5B2B03099B0062EB3A /* GameDetailModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A06242A82AFC6E9B00A1FF3D /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				A04ADF5D2B030E3E0062EB3A /* HomeInteractor.swift */,
+				A08961862B06027B005B57BB /* DetailInteractor.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		A06242A92AFC6EB300A1FF3D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A06242B42AFCAC6B00A1FF3D /* ApiCall.swift */,
+				A08961932B0740B9005B57BB /* NetworkMonitor.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A06242AA2AFC6EBB00A1FF3D /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				A06242C52AFCB32600A1FF3D /* RawgMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		A06242AB2AFC6EC000A1FF3D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A06242B22AFCAB0100A1FF3D /* CustomError.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		A06242AC2AFC6ED300A1FF3D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A06242B12AFC6F2500A1FF3D /* Presenter */,
+				A06242B02AFC6F1E00A1FF3D /* Router */,
+				A06242AF2AFC6F1100A1FF3D /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A06242AD2AFC6EDD00A1FF3D /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				A08961852B060252005B57BB /* Presenter */,
+				A08961842B060246005B57BB /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		A06242AE2AFC6EE300A1FF3D /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		A06242AF2AFC6F1100A1FF3D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A04ADF712B046A380062EB3A /* HomeView.swift */,
+				A089617D2B05FC97005B57BB /* GameRow.swift */,
+				A089617F2B05FEC4005B57BB /* HomeHeader.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A06242B02AFC6F1E00A1FF3D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A04ADF632B03117B0062EB3A /* HomeRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		A06242B12AFC6F2500A1FF3D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A04ADF612B030FD90062EB3A /* HomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A08961812B05FF4B005B57BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A08961822B05FF6B005B57BB /* EmptyView.swift */,
+				A08961912B070A1B005B57BB /* ShimmerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A08961842B060246005B57BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A089618A2B060369005B57BB /* DetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A08961852B060252005B57BB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A08961882B060300005B57BB /* DetailPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +373,14 @@
 			dependencies = (
 			);
 			name = RAWGApp;
+			packageProductDependencies = (
+				A06242B72AFCB04700A1FF3D /* Realm */,
+				A06242B92AFCB04700A1FF3D /* RealmSwift */,
+				A06242BC2AFCB09A00A1FF3D /* Alamofire */,
+				A06242BF2AFCB16800A1FF3D /* CachedAsyncImage */,
+				A089618C2B060400005B57BB /* CachedAsyncImage */,
+				A089618F2B07088E005B57BB /* Shimmer */,
+			);
 			productName = RAWGApp;
 			productReference = A062428B2AFC6D4900A1FF3D /* RAWGApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +409,12 @@
 				Base,
 			);
 			mainGroup = A06242822AFC6D4900A1FF3D;
+			packageReferences = (
+				A06242B62AFCB04600A1FF3D /* XCRemoteSwiftPackageReference "realm-swift" */,
+				A06242BB2AFCB09A00A1FF3D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A06242BE2AFCB16700A1FF3D /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
+				A089618E2B07088E005B57BB /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
+			);
 			productRefGroup = A062428C2AFC6D4900A1FF3D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A06242962AFC6D4C00A1FF3D /* Preview Assets.xcassets in Resources */,
+				A04ADF552B01BD840062EB3A /* RAWG-info.plist in Resources */,
 				A06242932AFC6D4C00A1FF3D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +442,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A04ADF602B030ED20062EB3A /* Injection.swift in Sources */,
+				A089618B2B060369005B57BB /* DetailView.swift in Sources */,
+				A08961872B06027B005B57BB /* DetailInteractor.swift in Sources */,
+				A06242C62AFCB32600A1FF3D /* RawgMapper.swift in Sources */,
+				A04ADF582B01FFF80062EB3A /* RawgRepository.swift in Sources */,
 				A06242912AFC6D4900A1FF3D /* ContentView.swift in Sources */,
+				A04ADF4D2B01B36A0062EB3A /* RawgsDetailResponse.swift in Sources */,
+				A04ADF722B046A380062EB3A /* HomeView.swift in Sources */,
+				A04ADF4F2B01B4D50062EB3A /* LocaleDataSource.swift in Sources */,
+				A08961942B0740B9005B57BB /* NetworkMonitor.swift in Sources */,
+				A04ADF5A2B0200540062EB3A /* GameModel.swift in Sources */,
+				A06242B52AFCAC6B00A1FF3D /* ApiCall.swift in Sources */,
+				A08961802B05FEC4005B57BB /* HomeHeader.swift in Sources */,
+				A08961922B070A1B005B57BB /* ShimmerView.swift in Sources */,
+				A089617E2B05FC97005B57BB /* GameRow.swift in Sources */,
+				A04ADF642B03117B0062EB3A /* HomeRouter.swift in Sources */,
+				A08961962B07452A005B57BB /* DetailEntity.swift in Sources */,
 				A062428F2AFC6D4900A1FF3D /* RAWGAppApp.swift in Sources */,
+				A04ADF512B01B7820062EB3A /* RemoteDataSource.swift in Sources */,
+				A06242C42AFCB27500A1FF3D /* RawgEntity.swift in Sources */,
+				A08961892B060300005B57BB /* DetailPresenter.swift in Sources */,
+				A04ADF5C2B03099B0062EB3A /* GameDetailModel.swift in Sources */,
+				A06242C22AFCB19D00A1FF3D /* RawgsResponse.swift in Sources */,
+				A06242B32AFCAB0100A1FF3D /* CustomError.swift in Sources */,
+				A04ADF5E2B030E3E0062EB3A /* HomeInteractor.swift in Sources */,
+				A08961832B05FF6B005B57BB /* EmptyView.swift in Sources */,
+				A04ADF622B030FD90062EB3A /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +674,74 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A06242B62AFCB04600A1FF3D /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		A06242BB2AFCB09A00A1FF3D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+		A06242BE2AFCB16700A1FF3D /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
+		A089618E2B07088E005B57BB /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A06242B72AFCB04700A1FF3D /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A06242B62AFCB04600A1FF3D /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		A06242B92AFCB04700A1FF3D /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A06242B62AFCB04600A1FF3D /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		A06242BC2AFCB09A00A1FF3D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A06242BB2AFCB09A00A1FF3D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		A06242BF2AFCB16800A1FF3D /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A06242BE2AFCB16700A1FF3D /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
+		};
+		A089618C2B060400005B57BB /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A06242BE2AFCB16700A1FF3D /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
+		};
+		A089618F2B07088E005B57BB /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A089618E2B07088E005B57BB /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A06242832AFC6D4900A1FF3D /* Project object */;
 }
