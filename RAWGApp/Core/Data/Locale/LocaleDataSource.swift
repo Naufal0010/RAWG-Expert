@@ -15,6 +15,8 @@ protocol LocaleDataSourceProtocol: AnyObject {
     func addGames(from games: [RawgEntity]) -> AnyPublisher<Bool, Error>
     func getDetailGame(by idGame: Int) -> AnyPublisher<RawgEntity, Error>
     func updateGame(by idGame: Int, detail: RawgEntity) -> AnyPublisher<Bool, Error>
+    func getGamesBy(_ name: String) -> AnyPublisher<[RawgEntity], Error>
+    func addGamesBy(_ name: String, from games: [RawgEntity]) -> AnyPublisher<Bool, Error>
 }
 
 final class LocaleDataSource: NSObject {
@@ -107,6 +109,50 @@ extension LocaleDataSource: LocaleDataSourceProtocol {
             }
         }.eraseToAnyPublisher()
     }
+    
+    func getGamesBy(_ name: String) -> AnyPublisher<[RawgEntity], Error> {
+        return Future<[RawgEntity], Error> { completion in
+            if let realm = self.realm {
+                let games: Results<RawgEntity> = {
+                    realm.objects(RawgEntity.self)
+                        .filter("name contains[c] %@", name)
+                        .sorted(byKeyPath: "name")
+                }()
+                completion(.success(games.toArray(ofType: RawgEntity.self)))
+            } else {
+                completion(.failure(DatabaseError.invalidInstance))
+            }
+        }.eraseToAnyPublisher()
+    }
+    
+    func addGamesBy(_ name: String, from games: [RawgEntity]) -> AnyPublisher<Bool, Error> {
+        return Future<Bool, Error> { completion in
+            if let realm = self.realm {
+                do {
+                    try realm.write {
+                        for game in games {
+                            if let rawgEntity = realm.object(ofType: RawgEntity.self, forPrimaryKey: game.id) {
+                                if rawgEntity.name == game.name {
+                                    game.isFavorite = rawgEntity.isFavorite
+                                    realm.add(game, update: .all)
+                                } else {
+                                    realm.add(game)
+                                }
+                            } else {
+                                realm.add(game)
+                            }
+                        }
+                    }
+                    completion(.success(true))
+                } catch {
+                    completion(.failure(DatabaseError.requestFailed))
+                }
+            } else {
+                completion(.failure(DatabaseError.invalidInstance))
+            }
+        }.eraseToAnyPublisher()
+    }
+    
 }
 
 extension Results {

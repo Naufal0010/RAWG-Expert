@@ -18,7 +18,7 @@ struct RawgResponse: Decodable {
     let name: String
     let released: String?
     let backgroundImage: String?
-    let rating: Double
+    let rating: Double?
     let metacritic: Int?
     let genres: [Genre]
     let shortScreenshots: [ShortScreenshot]

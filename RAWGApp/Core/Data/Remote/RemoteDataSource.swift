@@ -63,4 +63,23 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
             }
         }.eraseToAnyPublisher()
     }
+    
+    func searchGame(by name: String) -> AnyPublisher<[RawgResponse], Error> {
+        return Future<[RawgResponse], Error> { completion in
+            if let url = URL(string: Endpoints.Gets.searchGames.url + name) {
+                AF.request(url)
+                    .validate()
+                    .responseDecodable(of: RawgsResponse.self) { response in
+                        switch response.result {
+                        case .success(let success):
+                            completion(.success(success.results))
+                            debugPrint(response)
+                        case .failure:
+                            completion(.failure(URLError.invalidResponse))
+                            debugPrint(response)
+                        }
+                    }
+            }
+        }.eraseToAnyPublisher()
+    }
 }

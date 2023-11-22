@@ -12,14 +12,18 @@ class HomePresenter: ObservableObject {
     
     private let router = HomeRouter()
     private let homeUseCase: HomeUseCase
+    private let searchUseCase: SearchUseCase
     private var cancellables: Set<AnyCancellable> = []
     
     @Published var rawgs: [GameModel] = []
     @Published var errorMessage: String = ""
     @Published var isLoading: Bool = false
     
-    init(homeUseCase: HomeUseCase) {
+    @Published var searchText: String = ""
+    
+    init(homeUseCase: HomeUseCase, searchUseCase: SearchUseCase) {
         self.homeUseCase = homeUseCase
+        self.searchUseCase = searchUseCase
     }
     
     func getAllGames() {
@@ -36,6 +40,26 @@ class HomePresenter: ObservableObject {
                 }
             }, receiveValue: { rawgs in
                 self.rawgs = rawgs
+            })
+            .store(in: &cancellables)
+    }
+    
+    func searchGame() {
+        isLoading = true
+        searchUseCase.searchGame(by: searchText)
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    self.errorMessage = error.localizedDescription
+                    self.isLoading = false
+                case .finished:
+                    self.isLoading = false
+                }
+            }, receiveValue: { games in
+                self.rawgs = []
+                self.rawgs = games
+                debugPrint(games)
             })
             .store(in: &cancellables)
     }

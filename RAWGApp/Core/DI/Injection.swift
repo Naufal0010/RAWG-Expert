@@ -28,4 +28,9 @@ final class Injection: NSObject {
         let repository = provideRepository()
         return DetailInteractor(repository: repository, detail: detail)
     }
+    
+    func provideSearch() -> SearchUseCase {
+        let repository = provideRepository()
+        return SearchInteractor(repository: repository)
+    }
 }

@@ -16,6 +16,26 @@ struct HomeView: View {
         VStack(alignment: .leading) {
             HomeHeader()
             
+            HStack {
+                SearchBar(searchText: self.$presenter.searchText)
+                    .padding(.top, 8)
+                    .onChange(of: self.presenter.searchText) {
+                        if self.presenter.searchText.isEmpty {
+                            self.presenter.getAllGames()
+                        } else {
+                            self.presenter.searchGame()
+                        }
+                    }
+                
+//                NavigationLink(destination: FavoriteView()) {
+                    Image(systemName: "heart.fill")
+                        .padding()
+                        .foregroundStyle(.gray800)
+                        .background(.gray100)
+                        .cornerRadius(10)
+//                }
+            }
+            
             Text("All Games")
                 .font(.title)
                 .fontWeight(.bold)

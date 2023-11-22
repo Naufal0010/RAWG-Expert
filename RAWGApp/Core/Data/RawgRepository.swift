@@ -12,6 +12,7 @@ protocol RawgRepositoryProtocol {
     
     func getAllGames() -> AnyPublisher<[GameModel], Error>
     func getDetailGame(by id: Int) -> AnyPublisher<GameModel, Error>
+    func searchGame(by name: String) -> AnyPublisher<[GameModel], Error>
     
 }
 
@@ -71,6 +72,28 @@ extension RawgRepository: RawgRepositoryProtocol {
                         .map { RawgMapper.mapDetailDetailEntityToDomain(input: $0) }
                         .eraseToAnyPublisher()
                 }
+            }.eraseToAnyPublisher()
+    }
+    
+    func searchGame(by name: String) -> AnyPublisher<[GameModel], Error> {
+        return self.remote.searchGame(by: name)
+            .map { RawgMapper.mapDetailGameResponseToEntity(input: $0) }
+            .catch { _ in self.locale.getGamesBy(name) }
+            .flatMap { responses in
+                self.locale.getGamesBy(name)
+                    .flatMap { locale -> AnyPublisher<[GameModel], Error> in
+                        if responses.count > locale.count {
+                            return self.locale.addGamesBy(name, from: responses)
+                                .filter { $0 }
+                                .flatMap { _ in self.locale.getGamesBy(name)
+                                        .map { RawgMapper.mapRawgEntitiesToDomains(input: $0)}
+                                }.eraseToAnyPublisher()
+                        } else {
+                            return self.locale.getGamesBy(name)
+                                .map { RawgMapper.mapRawgEntitiesToDomains(input: $0) }
+                                .eraseToAnyPublisher()
+                        }
+                    }
             }.eraseToAnyPublisher()
     }
     

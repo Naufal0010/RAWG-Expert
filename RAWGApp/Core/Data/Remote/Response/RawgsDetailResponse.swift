@@ -12,12 +12,12 @@ struct DetailsRawgResponse: Decodable {
     let id: Int
     let name: String
     let nameOriginal: String
-    let description: String
-    let released: String
+    let description: String?
+    let released: String?
     let backgroundImage: String
     let backgroundImageAdditional: String
-    let rating: Double
-    let metacritic: Int
+    let rating: Double?
+    let metacritic: Int?
 
     enum CodingKeys: String, CodingKey {
         case id

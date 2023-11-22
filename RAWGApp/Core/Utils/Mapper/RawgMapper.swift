@@ -18,7 +18,7 @@ final class RawgMapper {
             newGames.name = result.name 
             newGames.released = result.released ?? ""
             newGames.urlBackground = result.backgroundImage ?? ""
-            newGames.rating = result.rating
+            newGames.rating = result.rating ?? 0.0
             newGames.metacritic = result.metacritic ?? 0
             
             return newGames
@@ -49,7 +49,7 @@ final class RawgMapper {
                                  released: result.released ?? "",
                                  desc: "",
                                  urlBackground: result.backgroundImage ?? "",
-                                 rating: result.rating,
+                                 rating: result.rating ?? 0.0,
                                  metacritic: result.metacritic ?? 0
                 )
         }
@@ -62,11 +62,11 @@ final class RawgMapper {
         let rawgEntity = RawgEntity()
         rawgEntity.id = detailResponse.id
         rawgEntity.name = detailResponse.name
-        rawgEntity.released = detailResponse.released
+        rawgEntity.released = detailResponse.released ?? ""
         rawgEntity.urlBackground = detailResponse.backgroundImage
-        rawgEntity.descriptionGames = detailResponse.description
-        rawgEntity.rating = detailResponse.rating
-        rawgEntity.metacritic = detailResponse.metacritic
+        rawgEntity.descriptionGames = detailResponse.description ?? ""
+        rawgEntity.rating = detailResponse.rating ?? 0.0
+        rawgEntity.metacritic = detailResponse.metacritic ?? 0
         return rawgEntity
     }
     
@@ -100,4 +100,20 @@ final class RawgMapper {
                     isFavorite: result.isFavorite)
         }
     }
+    
+    static func mapDetailGameResponseToEntity(
+        input rawgResponse: [RawgResponse]
+    ) -> [RawgEntity] {
+        return rawgResponse.map { result in
+            let rawgEntity = RawgEntity()
+            rawgEntity.id = result.id
+            rawgEntity.name = result.name
+            rawgEntity.released = result.released ?? ""
+            rawgEntity.urlBackground = result.backgroundImage ?? ""
+            rawgEntity.rating = result.rating ?? 0.0
+            rawgEntity.metacritic = result.metacritic ?? 0
+            return rawgEntity
+        }
+    }
+
 }
