@@ -54,11 +54,15 @@ struct HomeView: View {
                             }
                         }
                     } else {
-                        ForEach(self.presenter.rawgs, id: \.id) { game in
-                            ZStack {
-                                self.presenter.linkBuilder(for: game) {
-                                    GameRow(gameModel: game)
-                                }.buttonStyle(PlainButtonStyle())
+                        if presenter.rawgs.isEmpty {
+                            EmptyView(selectedView: .home)
+                        } else {
+                            ForEach(self.presenter.rawgs, id: \.id) { game in
+                                ZStack {
+                                    self.presenter.linkBuilder(for: game) {
+                                        GameRow(gameModel: game)
+                                    }.buttonStyle(PlainButtonStyle())
+                                }
                             }
                         }
                     }

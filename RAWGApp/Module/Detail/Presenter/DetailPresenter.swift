@@ -40,7 +40,7 @@ class DetailPresenter: ObservableObject {
                 }
             }, receiveValue: { detail in
                 self.data.desc = detail.desc
-//                debugPrint(detail)
+                debugPrint(detail)
             })
             .store(in: &cancellables)
     }

@@ -15,7 +15,7 @@ struct DetailsRawgResponse: Decodable {
     let description: String?
     let released: String?
     let backgroundImage: String
-    let backgroundImageAdditional: String
+    let backgroundImageAdditional: String?
     let rating: Double?
     let metacritic: Int?
 

@@ -34,7 +34,6 @@ class HomePresenter: ObservableObject {
                 switch completion {
                 case .failure:
                     self.errorMessage = String(describing: completion)
-                    debugPrint(self.errorMessage)
                 case .finished:
                     self.isLoading = false
                 }
