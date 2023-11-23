@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var homePresenter: HomePresenter
     @State private var showSplash = true
     
     var body: some View {

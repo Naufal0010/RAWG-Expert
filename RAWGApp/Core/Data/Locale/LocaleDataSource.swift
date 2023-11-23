@@ -17,6 +17,9 @@ protocol LocaleDataSourceProtocol: AnyObject {
     func updateGame(by idGame: Int, detail: RawgEntity) -> AnyPublisher<Bool, Error>
     func getGamesBy(_ name: String) -> AnyPublisher<[RawgEntity], Error>
     func addGamesBy(_ name: String, from games: [RawgEntity]) -> AnyPublisher<Bool, Error>
+    
+    func getFavoriteGames() -> AnyPublisher<[RawgEntity], Error>
+    func updateFavoriteGame(by idGame: Int) -> AnyPublisher<RawgEntity, Error>
 }
 
 final class LocaleDataSource: NSObject {
@@ -90,14 +93,14 @@ extension LocaleDataSource: LocaleDataSourceProtocol {
     
     func updateGame(by idGame: Int, detail: RawgEntity) -> AnyPublisher<Bool, Error> {
         return Future<Bool, Error> { completion in
-            if let realm = self.realm, let detailEntity = {
+            if let realm = self.realm, let rawgEntity = {
                 realm.objects(RawgEntity.self).filter("id = \(idGame)")
             }().first {
                 do {
                     try realm.write {
 
-                        detailEntity.setValue(detail.descriptionGames, forKey: "descriptionGames")
-                        detailEntity.setValue(detail.isFavorite, forKey: "isFavorite")
+                        rawgEntity.setValue(detail.descriptionGames, forKey: "descriptionGames")
+                        rawgEntity.setValue(detail.isFavorite, forKey: "isFavorite")
                     }
                     completion(.success(true))
 
@@ -153,6 +156,42 @@ extension LocaleDataSource: LocaleDataSourceProtocol {
         }.eraseToAnyPublisher()
     }
     
+    func getFavoriteGames() -> AnyPublisher<[RawgEntity], Error> {
+        return Future<[RawgEntity], Error> { completion in
+            if let realm = self.realm {
+                let rawgEntities = {
+                    realm.objects(RawgEntity.self)
+                        .filter("isFavorite = \(true)")
+                        .sorted(byKeyPath: "name")
+                }()
+                completion(.success(rawgEntities.toArray(ofType: RawgEntity.self)))
+                debugPrint(rawgEntities)
+            } else {
+                completion(.failure(DatabaseError.invalidInstance))
+            }
+        }.eraseToAnyPublisher()
+    }
+    
+    func updateFavoriteGame(by idGame: Int) -> AnyPublisher<RawgEntity, Error> {
+        return Future<RawgEntity, Error> { completion in
+            if let realm = self.realm, let rawgEntity = {
+                realm.objects(RawgEntity.self).filter("id == \(idGame)")
+            }().first {
+                do {
+                    try realm.write {
+                        rawgEntity.setValue(!rawgEntity.isFavorite, forKey: "isFavorite")
+                    }
+                    completion(.success(rawgEntity))
+                    debugPrint(rawgEntity)
+                } catch {
+                    completion(.failure(DatabaseError.requestFailed))
+                    debugPrint(rawgEntity)
+                }
+            } else {
+                completion(.failure(DatabaseError.invalidInstance))
+            }
+        }.eraseToAnyPublisher()
+    }
 }
 
 extension Results {

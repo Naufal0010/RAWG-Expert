@@ -12,7 +12,7 @@ protocol DetailUseCase {
     
     func getDetailGame() -> GameModel
     func getDetailGame() -> AnyPublisher<GameModel, Error>
-    
+    func updateFavoriteGame() -> AnyPublisher<GameModel, Error>
 }
 
 class DetailInteractor: DetailUseCase {
@@ -31,5 +31,9 @@ class DetailInteractor: DetailUseCase {
     
     func getDetailGame() -> AnyPublisher<GameModel, Error> {
         return repository.getDetailGame(by: detail.id)
+    }
+    
+    func updateFavoriteGame() -> AnyPublisher<GameModel, Error> {
+        return repository.updateFavoriteGame(by: detail.id)
     }
 }

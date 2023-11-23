@@ -35,23 +35,9 @@ final class RawgMapper {
                              desc: result.descriptionGames,
                              urlBackground: result.urlBackground,
                              rating: result.rating,
-                             metacritic: result.metacritic
+                             metacritic: result.metacritic,
+                             isFavorite: result.isFavorite
             )
-        }
-    }
-    
-    static func mapRawgResponsesToDomains(
-        input rawgResponses: [RawgResponse]
-    ) -> [GameModel] {
-        return rawgResponses.map { result in
-                return GameModel(id: result.id,
-                                 name: result.name,
-                                 released: result.released ?? "",
-                                 desc: "",
-                                 urlBackground: result.backgroundImage ?? "",
-                                 rating: result.rating ?? 0.0,
-                                 metacritic: result.metacritic ?? 0
-                )
         }
     }
     
@@ -71,34 +57,17 @@ final class RawgMapper {
     }
     
     static func mapDetailDetailEntityToDomain(
-        input detailEntity: RawgEntity
+        input rawgEntity: RawgEntity
     ) -> GameModel {
         return GameModel(
-            id: detailEntity.id,
-            name: detailEntity.name,
-            released: detailEntity.released,
-            desc: detailEntity.descriptionGames,
-            urlBackground: detailEntity.urlBackground,
-            rating: detailEntity.rating,
-            metacritic: detailEntity.metacritic)
-    }
-    
-    static func mapDetailEntitiesToDomains(
-        input detailEntities: [DetailEntity]
-    ) -> [GameDetailModel] {
-        return detailEntities.map { result in
-                return GameDetailModel(
-                    id: result.id,
-                    name: result.name,
-                    nameOriginal: result.nameOriginal,
-                    description: result.desc,
-                    released: result.released,
-                    backgroundImage: result.backgroundImage,
-                    backgroundImageAdditional: result.backgroundImageAdditional,
-                    rating: result.rating,
-                    metacritic: result.metacritic,
-                    isFavorite: result.isFavorite)
-        }
+            id: rawgEntity.id,
+            name: rawgEntity.name,
+            released: rawgEntity.released,
+            desc: rawgEntity.descriptionGames,
+            urlBackground: rawgEntity.urlBackground,
+            rating: rawgEntity.rating,
+            metacritic: rawgEntity.metacritic,
+            isFavorite: rawgEntity.isFavorite)
     }
     
     static func mapDetailGameResponseToEntity(

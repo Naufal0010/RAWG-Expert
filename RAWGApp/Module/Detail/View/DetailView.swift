@@ -110,6 +110,22 @@ struct DetailView: View {
                     
             }
             .background(Color.bg)
+            .toolbar {
+                Button {
+                    if self.presenter.data.isFavorite {
+                        self.presenter.updateFavoriteGame()
+                        self.presenter.showingAlert = false
+                    } else {
+                        self.presenter.updateFavoriteGame()
+                        self.presenter.showingAlert = true
+                    }
+                } label: {
+                    Label("Favorite Button", systemImage: presenter.data.isFavorite ? "heart.fill" : "heart")
+                }
+            }
+            .alert(isPresented: $presenter.showingAlert) {
+                Alert(title: Text("Favorited!"), message: Text(" \(presenter.data.name) added to favorite"), dismissButton: .default(Text("OK")))
+            }
         }
         .tint(Color.accentColor)
         .onAppear {

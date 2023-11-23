@@ -14,6 +14,8 @@ protocol RawgRepositoryProtocol {
     func getDetailGame(by id: Int) -> AnyPublisher<GameModel, Error>
     func searchGame(by name: String) -> AnyPublisher<[GameModel], Error>
     
+    func getFavoriteGames() -> AnyPublisher<[GameModel], Error>
+    func updateFavoriteGame(by id: Int) -> AnyPublisher<GameModel, Error>
 }
 
 final class RawgRepository: NSObject {
@@ -97,4 +99,15 @@ extension RawgRepository: RawgRepositoryProtocol {
             }.eraseToAnyPublisher()
     }
     
+    func getFavoriteGames() -> AnyPublisher<[GameModel], Error> {
+        return self.locale.getFavoriteGames()
+            .map { RawgMapper.mapRawgEntitiesToDomains(input: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func updateFavoriteGame(by id: Int) -> AnyPublisher<GameModel, Error> {
+        return self.locale.updateFavoriteGame(by: id)
+            .map { RawgMapper.mapDetailDetailEntityToDomain(input: $0) }
+            .eraseToAnyPublisher()
+    }
 }

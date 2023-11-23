@@ -15,6 +15,7 @@ protocol RemoteDataSourceProtocol: AnyObject {
     
     func getDetailGames(by id: Int) -> AnyPublisher<DetailsRawgResponse, Error>
     
+    func searchGame(by name: String) -> AnyPublisher<[RawgResponse], Error>
 }
 
 final class RemoteDataSource: NSObject {

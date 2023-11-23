@@ -70,4 +70,10 @@ class HomePresenter: ObservableObject {
     ) -> some View {
         NavigationLink(destination: router.makeDetailView(for: game)) { content() }
     }
+    
+    func linkBuilderFavorite<Content: View>(
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        NavigationLink(destination: router.makeFavoriteView()) { content() }
+    }
 }

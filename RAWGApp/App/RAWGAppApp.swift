@@ -9,7 +9,10 @@ import SwiftUI
 
 @main
 struct RAWGAppApp: App {
-    let homePresenter = HomePresenter(homeUseCase: Injection.init().provideHome(), searchUseCase: Injection.init().provideSearch())
+    let homePresenter = HomePresenter(
+        homeUseCase: Injection.init().provideHome(),
+        searchUseCase: Injection.init().provideSearch()
+    )
     
     var body: some Scene {
         WindowGroup {

@@ -15,4 +15,5 @@ struct GameModel: Equatable, Identifiable {
     let urlBackground: String
     let rating: Double
     let metacritic: Int
+    var isFavorite: Bool = false
 }

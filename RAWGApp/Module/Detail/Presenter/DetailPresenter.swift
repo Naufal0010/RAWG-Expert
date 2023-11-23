@@ -17,6 +17,7 @@ class DetailPresenter: ObservableObject {
     @Published var errorMessage: String = ""
     @Published var isLoading: Bool = false
     @Published var isError: Bool = false
+    @Published var showingAlert: Bool = false
     
     init(detailUseCase: DetailUseCase) {
         self.detailUseCase = detailUseCase
@@ -40,6 +41,23 @@ class DetailPresenter: ObservableObject {
             }, receiveValue: { detail in
                 self.data.desc = detail.desc
 //                debugPrint(detail)
+            })
+            .store(in: &cancellables)
+    }
+    
+    func updateFavoriteGame() {
+        detailUseCase.updateFavoriteGame()
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    self.isLoading = false
+                case .failure:
+                    self.errorMessage = String(describing: completion)
+                }
+            }, receiveValue: { favorite in
+                self.data = favorite
+                debugPrint(favorite)
             })
             .store(in: &cancellables)
     }

@@ -27,13 +27,13 @@ struct HomeView: View {
                         }
                     }
                 
-//                NavigationLink(destination: FavoriteView()) {
+                self.presenter.linkBuilderFavorite {
                     Image(systemName: "heart.fill")
                         .padding()
                         .foregroundStyle(.gray800)
                         .background(.gray100)
                         .cornerRadius(10)
-//                }
+                }
             }
             
             Text("All Games")

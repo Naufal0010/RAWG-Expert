@@ -14,4 +14,10 @@ class HomeRouter {
         let presenter = DetailPresenter(detailUseCase: detailUseCase)
         return DetailView(presenter: presenter)
     }
+    
+    func makeFavoriteView() -> some View {
+        let favoriteUseCase = Injection.init().provideFavorite()
+        let presenter = FavoritePresenter(favoriteUseCase: favoriteUseCase)
+        return FavoriteView(presenter: presenter)
+    }
 }
